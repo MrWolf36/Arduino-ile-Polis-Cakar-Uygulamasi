@@ -1,0 +1,154 @@
+#include "IRremote.h" 
+int receiver = 2;
+int sayac=0;
+IRrecv irrecv(receiver);
+const int LK1 = 6;
+const int LM1 = 3;
+const int LK2 = 5;
+const int LM2 = 4;
+decode_results results;  
+#define BUT1 0xFD08F7
+#define BUT2 0xFD8877
+#define BUT3 0xFD48B7
+#define BUT4 0xFD28D7
+#define BUT5 0xFDA857
+#define BUT6 0xFFC23D
+#define BUT7 0xFFE01F
+#define BUT8 0xFFA857
+#define BUT9 0xFF906F
+#define BUT* 0xFF6897
+#define BUT0 0xFF9867
+#define BUT# 0xFFB04F
+#define yukari 0xFF18E7
+#define asagi 0xFF4AB5
+#define sol 0xFF10EF
+#define sag 0xFF5AA5
+#define ok 0xFF38C7  
+
+
+
+void setup() {
+
+  Serial.begin(9600);
+  Serial.println("CALISMAK ICIN BEKLIYOR");
+
+  pinMode(LK1, OUTPUT);
+  pinMode(LM1, OUTPUT);
+  pinMode(LK2,OUTPUT);
+ pinMode(LM2,OUTPUT);
+}
+
+
+void loop() {
+
+
+  if (irrecv.decode(&results)){
+    Serial.println(results.value,HEX);
+    irrecv.resume();
+ if(results.value==BUT1)
+ {
+      digitalWrite(LK1, HIGH);
+  digitalWrite(LM1, HIGH);
+ digitalWrite(LK2,HIGH);
+ digitalWrite(LM2,HIGH);
+  delay(250);
+  digitalWrite(LK1, LOW);
+  digitalWrite(LM1, LOW);
+  digitalWrite(LK2,LOW);
+  digitalWrite(LM2,LOW);
+  delay(250);
+  }
+
+ if(results.value==BUT2){
+     digitalWrite(LK1, HIGH);
+  digitalWrite(LK2,HIGH);
+  delay(150);
+  digitalWrite(LM1, LOW);
+   digitalWrite(LM2,LOW);
+  delay(150);
+  digitalWrite(LK1, LOW);
+  digitalWrite(LK2,LOW);
+  delay(150);
+  digitalWrite(LM1, HIGH);
+    digitalWrite(LM2,HIGH);
+  delay(150);
+  }
+ if(results.value==BUT3){ 
+ digitalWrite(LK1, HIGH);
+   digitalWrite(LK2,HIGH);
+  delay(50);
+  digitalWrite(LK1, LOW);
+  digitalWrite(LM1, LOW);
+  digitalWrite(LK2,LOW);
+  digitalWrite(LM2,LOW);
+  delay(50);
+  digitalWrite(LM1, HIGH);
+   digitalWrite(LM2,HIGH);
+  delay(50);
+  digitalWrite(LK1, LOW);
+  digitalWrite(LM1, LOW);
+ digitalWrite(LK2,LOW);
+   digitalWrite(LM2,LOW);
+  delay(50);
+  }
+
+ if(results.value==BUT4){ 
+ digitalWrite(LK1, HIGH);
+  digitalWrite(LM2,HIGH);
+  delay(50);
+  digitalWrite(LK1, LOW);
+  digitalWrite(LM2,LOW);
+  delay(50);
+  digitalWrite(LK1, HIGH);
+   digitalWrite(LM2,HIGH);
+  delay(50);
+  digitalWrite(LK1, LOW);
+  digitalWrite(LM2,LOW);
+  delay(50);
+  digitalWrite(LK1, HIGH);
+   digitalWrite(LM2,HIGH);
+  delay(50);
+  digitalWrite(LK1, LOW);
+   digitalWrite(LM2,LOW);
+  delay(50);
+  digitalWrite(LK1, HIGH);
+   digitalWrite(LM2,HIGH);
+  delay(50);
+  digitalWrite(LK1, LOW);
+ digitalWrite(LM2,LOW);
+  delay(50);
+
+ digitalWrite(LK2,HIGH);
+  digitalWrite(LM1, HIGH);
+  delay(50);
+  digitalWrite(LK2,LOW);
+  digitalWrite(LM1, LOW);
+  delay(50);
+ digitalWrite(LK2,HIGH);
+  digitalWrite(LM1, HIGH);
+  delay(50);
+ digitalWrite(LK2,LOW);
+  digitalWrite(LM1, LOW);
+  delay(50);
+ digitalWrite(LK2,HIGH);
+  digitalWrite(LM1, HIGH);
+  delay(50);
+    digitalWrite(LK2,LOW);
+  digitalWrite(LM1, LOW);
+  delay(50);
+ digitalWrite(LK2,HIGH);
+  digitalWrite(LM1, HIGH);
+  delay(50);
+    digitalWrite(LK2,LOW);
+  digitalWrite(LM1, LOW);
+  delay(50);
+  }
+  if(results.value==BUT5){
+  digitalWrite(LK1, LOW);
+ digitalWrite(LK2,LOW);
+  digitalWrite(LM1, LOW);
+     digitalWrite(LM2,LOW);
+  }
+
+ 
+    }}
